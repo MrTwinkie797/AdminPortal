@@ -17,5 +17,10 @@ namespace AdminPortal.Controllers
         {
             return View();
         }
+        [Authorize]
+        public IActionResult Portal()
+        {
+            return View();
+        }
     }
 }
