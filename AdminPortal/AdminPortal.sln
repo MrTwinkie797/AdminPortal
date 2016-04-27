@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AdminPortal", "src\AdminPortal\AdminPortal.xproj", "{1373DF68-9C10-4F0F-826C-6E27482507E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationTest", "AuthenticationTest\AuthenticationTest.csproj", "{BD303DAD-6C56-45B8-B30E-1B0A0B718B07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +24,10 @@ Global
 		{1373DF68-9C10-4F0F-826C-6E27482507E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1373DF68-9C10-4F0F-826C-6E27482507E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1373DF68-9C10-4F0F-826C-6E27482507E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD303DAD-6C56-45B8-B30E-1B0A0B718B07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD303DAD-6C56-45B8-B30E-1B0A0B718B07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD303DAD-6C56-45B8-B30E-1B0A0B718B07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD303DAD-6C56-45B8-B30E-1B0A0B718B07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -17,19 +17,29 @@ namespace AdminPortal
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var connString = @"";
+            var connString = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=AdminPortal;Integrated Security=True;Pooling=False";
 
             services.AddEntityFramework()
                 .AddSqlServer()
-                .AddDbContext<IdentityDbContext>(OptionsServiceCollectionExtensions =>
-                OptionsServiceCollectionExtensions.UseSqlServer(ConnString));
+                .AddDbContext<IdentityDbContext>(options =>
+                options.UseSqlServer(connString));
 
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {
-                options.Password.RequiredLength = 3;
+                options.Password.RequiredLength = 1;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonLetterOrDigit = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
             })
                 .AddEntityFrameworkStores<IdentityDbContext>()
                 .AddDefaultTokenProviders();
+
+            services
+                .AddEntityFramework()
+                .AddSqlServer()
+                .AddDbContext<DbContext>(
+                options => options.UseSqlServer(connString));
 
             services.AddMvc();
         }
@@ -40,6 +50,7 @@ namespace AdminPortal
             app.UseIISPlatformHandler();
             app.UseStaticFiles();
             app.UseDeveloperExceptionPage();
+            app.UseIdentity();
             app.UseMvcWithDefaultRoute();
         }
 
