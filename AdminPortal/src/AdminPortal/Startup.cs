@@ -6,6 +6,8 @@ using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Data.Entity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace AdminPortal
 {
@@ -15,6 +17,20 @@ namespace AdminPortal
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            var connString = @"";
+
+            services.AddEntityFramework()
+                .AddSqlServer()
+                .AddDbContext<IdentityDbContext>(OptionsServiceCollectionExtensions =>
+                OptionsServiceCollectionExtensions.UseSqlServer(ConnString));
+
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            {
+                options.Password.RequiredLength = 3;
+            })
+                .AddEntityFrameworkStores<IdentityDbContext>()
+                .AddDefaultTokenProviders();
+
             services.AddMvc();
         }
 
