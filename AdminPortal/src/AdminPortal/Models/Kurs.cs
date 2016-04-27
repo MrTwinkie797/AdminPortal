@@ -11,7 +11,7 @@ namespace AdminPortal.Models
         public string Name { get; set; }
         public string Lärare { get; set; }
         public string Klass { get; set; }
-        public date DatumStart { get; set; }
-        public date DatumSlut { get; set; }
+        public DateTime DatumStart { get; set; }
+        public DateTime DatumSlut { get; set; }
     }
 }
