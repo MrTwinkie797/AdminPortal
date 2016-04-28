@@ -7,8 +7,15 @@ namespace AuthenticationTest
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void InloggningsTest()
         {
+            //AccountController ac = new AccountController();
+
+            string UserName = "admin";
+            string Password = "admin";
+            string excpected = "Inloggning lyckades";
+
+            //string act = ac.Login(UserName, Password);
         }
     }
 }
