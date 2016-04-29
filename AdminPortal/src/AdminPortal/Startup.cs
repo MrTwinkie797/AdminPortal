@@ -8,6 +8,7 @@ using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Extensions.Logging;
 
 namespace AdminPortal
 {
@@ -45,13 +46,24 @@ namespace AdminPortal
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app,
+            ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddConsole(minLevel: LogLevel.Verbose);
+
             app.UseIISPlatformHandler();
             app.UseStaticFiles();
+            app.UseMvc();
             app.UseDeveloperExceptionPage();
             app.UseIdentity();
             app.UseMvcWithDefaultRoute();
+
+            app.Run(async (context) =>
+            {
+                var logger = loggerFactory.CreateLogger("Catchall Endpoint");
+                logger.LogInformation("No endpoint found request {path}", context.Request.Path);
+                await context.Response.WriteAsync("No endpoint found - try /api/todo.");
+            });
         }
 
         // Entry point for the application.

@@ -14,8 +14,7 @@
     "EntityFramework.Core": "7.0.0-rc1-final",
     "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
     "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-rc1-final",
-    "FluentAssertions": "4.5.0",
-    "NUnit": "3.2.1"
+    "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final"
   },
 
   "commands": {
@@ -23,13 +22,10 @@
   },
 
   "frameworks": {
-    "dnx451": {
-      "dependencies": {
-        "Xania.AspNet.Simulator": "1.4.0"
-      }
-    },
+    "dnx451": { },
     "dnxcore50": { }
-  },
+    },
+  
 
   "exclude": [
     "wwwroot",

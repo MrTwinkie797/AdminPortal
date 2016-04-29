@@ -56,8 +56,6 @@ namespace AdminPortal.Controllers
         }
         public IActionResult Logout()
         {
-
-
             return RedirectToAction(nameof(HomeController.Index), "Index");
         }
 
@@ -83,7 +81,7 @@ namespace AdminPortal.Controllers
             return RedirectToAction(nameof(HomeController.Index), "Index");
         }
 
-        [AllowAnonymous]
+        [Authorize]
         [HttpGet]
         public IActionResult Register()
         {
